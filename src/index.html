@@ -35,13 +35,13 @@ function SetItems()
         0.05,
         0.08,
         "red");
-    
+
     var trailer = new Trailer(
         car,
         0.065,
         0.08,
         "grey");
-    
+
     Global.cw.SetItem(
         "driveway",
         new Driveway(
@@ -53,26 +53,26 @@ function SetItems()
             0.13,
             car,
             trailer));
-    
+
     Global.cw.SetItem(
         "car",
         car);
-    
+
     Global.cw.SetItem(
         "trailer",
         trailer);
-    
+
     Global.cw.SetItem(
         "steeringWheel",
         new SteeringWheel(
             new Point(Global.cw.GetRight() - 0.15, Global.cw.GetBottom() + 0.15),
             0.1,
             car));
-    
+
     Global.cw.SetItem(
         "timer",
         new Timer());
-    
+
     Global.cw.GetItem("timer").Start();
 }
 
@@ -98,11 +98,11 @@ function ResetVehicle()
 }
 
 window.RequestAnimFrame = (
-    window.requestAnimationFrame || 
-    window.webkitRequestAnimationFrame || 
-    window.mozRequestAnimationFrame || 
-    window.oRequestAnimationFrame || 
-    window.msRequestAnimationFrame || 
+    window.requestAnimationFrame ||
+    window.webkitRequestAnimationFrame ||
+    window.mozRequestAnimationFrame ||
+    window.oRequestAnimationFrame ||
+    window.msRequestAnimationFrame ||
     function (callback)
     {
         window.setTimeout(callback, 1000 / 60);
@@ -119,7 +119,7 @@ document.onkeydown = function(event)
     else if (event.keyCode == 66) pressedKeys.b = true;
     else if (event.keyCode == 68) pressedKeys.d = true;
     else if (event.keyCode == 83) pressedKeys.s = true;
-    
+
     //alert(event.keyCode);
 }
 
@@ -137,12 +137,12 @@ document.onkeyup = function(event)
 function Update()
 {
     var ctx = document.getElementById("cvs").getContext("2d");
-    
+
     Clear(ctx);
     Refit(ctx);
     Global.cw.Update();
     Draw();
-    
+
     RequestAnimFrame(Update);
 }
 
